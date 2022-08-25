@@ -84,11 +84,20 @@ def get_noise(n_samples, z_dim, device='cpu'):
     '''
     return torch.randn(n_samples, z_dim, device=device)
    ```
-   This generator will create a model with 5 convolutiontranspose2D layers. 
-To estimate the size of images output from the single layer, we can refer the formular from the link
+   This generator will create a model with 5 `convTranspose2D` layers. 
+To estimate the size of images output from the single layer, we can refer the formular from the [links](https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html).
 
+$ H_{out} = (H_{in} - 1)*stride[0] + dilation[0]*(kernel_size[0] - 1) + output_padding[0] + 1$
+$ W_{out} = (W_{in} - 1)*stride[1] + dilation[1]*(kernel_size[1] - 1) + output_padding[1] + 1$
 
+In our case, if we input wit a image in a shape (N,C,1,1). Then the size of image at two last colume will be:
 
+## Tables
 
-
-
+| Layers | Size of image |
+|-|-|
+| $1^{st}$ | (3,3)|
+| $2^{nd}$ | (7,7)|
+| $3^{rd}$ | (15,15)|
+| $4^{th}$ | (31,31)|
+| $5^{th}$ | (64,64)|
