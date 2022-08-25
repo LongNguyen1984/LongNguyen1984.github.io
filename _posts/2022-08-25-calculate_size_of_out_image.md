@@ -89,14 +89,13 @@ def get_noise(n_samples, z_dim, device='cpu'):
 To estimate the size of images output from the single layer, we can refer the formular from the [links](https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html).
 
 ```math
-H_{out} = (H_{in} - 1)*stride[0] + dilation[0]*(kernel_size[0] - 1) + output_padding[0] + 1
+H_{out}=(H_{in}-1)*stride[0]+dilation[0]*(kernel_size[0]-1)+output_padding[0]+1
 ```
 
 ```math
-W_{out} = (W_{in} - 1)*stride[1] + dilation[1]*(kernel_size[1] - 1) + output_padding[1] + 1
+W_{out}=(W_{in}-1)*stride[1]+dilation[1]*(kernel_size[1]-1)+output_padding[1]+1
 ```
 
-$a^2+b^2=c^2$
 In our case, if we input wit a image in a shape (N,C,1,1). Then the size of image at two last colume will be:
 
 ### Size of image
