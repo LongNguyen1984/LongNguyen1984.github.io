@@ -1,6 +1,6 @@
 # How to conculate size of output image from a model.
 
-1) Size of a batch data: 
+## 1) Size of a batch data: 
 In deep learning, when you build and training model you need to know the size of input. It could be a single or group of 1 Dimension data (time-series data) or 2 Dimension data (images).
 To take andvatage of multicore, multi-processing thread from modern architecture of CPU and GPU. There data is group in a batch. Therefore, our input data have a shape of 
 (N, size(data)) where N is the number of data we want to load into the CPU or GPU for processing. 
@@ -9,13 +9,13 @@ We have a black-white data have a size (28, 28). Now you want to group in batch 
 Otherwisem if we have a RGB data with the same size. In computer, a RGB picture will be formated in the shape of (H,W,C) whith H,W,C stand for Heights, Widths and Channels. a RGB image will have
 three channels. Therefore a batch of 8 RGB images will be (8,3,28,28).
 
-2) Calculate the shape of a image output from a neurol network (NN) model:
+## 2) Calculate the shape of a image output from a neurol network (NN) model:
 
 A neural network model is formed by a sequence of many kinds of layers such as convolution, activation, pooling, flattlen etc. The shape of images will be changed by the structure of layers.
 The factors which modify their shape includes: the original size, kernel size, padding, stride values. 
 The example below give an example of the size of image after a squence model for generator.
 
-Example: 
+### Example: 
 Assume we have a class for a generator as below:
 ```python
 class Generator(nn.Module):
@@ -92,9 +92,9 @@ $ W_{out} = (W_{in} - 1)*stride[1] + dilation[1]*(kernel_size[1] - 1) + output_p
 
 In our case, if we input wit a image in a shape (N,C,1,1). Then the size of image at two last colume will be:
 
-## Tables
+### Size of image
 
-| Layers | Size of image |
+| Layers | (H,W) |
 |-|-|
 | $1^{st}$ | (3,3)|
 | $2^{nd}$ | (7,7)|
