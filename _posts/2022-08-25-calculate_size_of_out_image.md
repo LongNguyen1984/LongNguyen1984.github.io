@@ -1,5 +1,6 @@
 # How to conculate size of output image from a model.
-
+1. TOC
+{:toc}
 ## 1) Size of a batch data: 
 In deep learning, when you build and training model you need to know the size of input. It could be a single or group of 1 Dimension data (time-series data) or 2 Dimension data (images).
 To take andvatage of multicore, multi-processing thread from modern architecture of CPU and GPU. There data is group in a batch. Therefore, our input data have a shape of 
